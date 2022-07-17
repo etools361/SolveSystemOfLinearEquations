@@ -5,12 +5,18 @@
 %--------------------------------------------------------------------------
 % 分析频率点
 f  = 1/2/pi;
+fprintf('freq = %0.4f Hz\n', f);
 % 输入参数
 R1 = 1;
 C2 = 1;
 L3 = 2;
 C4 = 1;
 R5 = 1;
+fprintf('RS = %0.3f Ohm\n', R1);
+fprintf('C2 = %0.3f F\n', C2);
+fprintf('L3 = %0.3f H\n', L3);
+fprintf('C4 = %0.3f F\n', C4);
+fprintf('RL = %0.3f Ohm\n', R5);
 % 参数计算
 w  = 2.*pi.*f;
 s  = 1i.*w;
@@ -29,7 +35,7 @@ Z  = [Z1+Z2,-Z2,0;Z2,Z2+Z3+Z4,Z4;0,-Z4,Z4+Z5];
 [z]    = funUpsub(L, V);
 [Io]   = funBacksub(U, z);
 Vo     = abs(Io(3)*1);
-fprintf('Vo(UL) = %0.3f V\n', Vo);
+fprintf('Vo(UL)        = %0.3f V\n', Vo);
 %% 最速下降
 Err = 1e-6;
 A   = Z;
